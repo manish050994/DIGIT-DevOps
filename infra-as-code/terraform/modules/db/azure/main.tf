@@ -4,19 +4,19 @@ resource "azurerm_subnet_network_security_group_association" "default" {
 }
 
 resource "azurerm_private_dns_zone" "default" {
-  name                = "${var.resource_group}-pdz.postgres.database.azure.com"
+  name                = "${lower(var.resource_group)}-pdz.postgres.database.azure.com"
   resource_group_name = var.resource_group
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "default" {
-  name                  = "${var.resource_group}-pdzvnetlink.com"
+  name                  = "${lower(var.resource_group)}-pdzvnetlink.com"
   private_dns_zone_name = azurerm_private_dns_zone.default.name
   virtual_network_id    = var.virtual_network_id
   resource_group_name   = var.resource_group
 }
 
 resource "azurerm_postgresql_flexible_server" "default" {
-  name                         = "${var.resource_group}-server"
+  name                         = "${lower(var.resource_group)}-server"
   resource_group_name          = var.resource_group
   location                     = var.location
   version                      = var.db_version
@@ -48,7 +48,7 @@ resource "azurerm_postgresql_flexible_server" "default" {
 }
 
 resource "azurerm_postgresql_flexible_server_database" "default" {
-  name      = "${var.resource_group}-db"
+  name      = "${lower(var.resource_group)}-db"
   server_id = azurerm_postgresql_flexible_server.default.id
   collation = "en_US.utf8"
   charset   = "UTF8"

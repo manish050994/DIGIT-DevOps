@@ -9,29 +9,29 @@ provider "azurerm" {
 
 terraform {
   backend "azurerm" {
-    resource_group_name  = "demo-azure-rg-terraform"
-    storage_account_name = "tfstatea9qof"
+    resource_group_name  = "AzureCloud"
+    storage_account_name = "tfstate8auyj"
     container_name       = "demo-azure-container"
     key                  = "terraform.tfstate"
   }
 }
 
 resource "azurerm_virtual_network" "example" {
-  name                = "${var.resource_group}-virtual-network"
+  name                = "${lower(var.resource_group)}-virtual-network"
   address_space       = ["10.0.0.0/16"]
   location            = var.location
   resource_group_name = var.resource_group
 }
 
 resource "azurerm_subnet" "aks" {
-  name                 = "${var.resource_group}-aks-subnet"
+  name                 = "${lower(var.resource_group)}-aks-subnet"
   resource_group_name  = var.resource_group
   virtual_network_name = azurerm_virtual_network.example.name
   address_prefixes     = ["10.0.1.0/24"]
 }
 
 resource "azurerm_subnet" "postgres" {
-  name                 = "${var.resource_group}-postgres-subnet"
+  name                 = "${lower(var.resource_group)}-postgres-subnet"
   resource_group_name  = var.resource_group
   virtual_network_name = azurerm_virtual_network.example.name
   address_prefixes     = ["10.0.2.0/24"]

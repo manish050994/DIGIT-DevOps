@@ -6,7 +6,7 @@ provider "azurerm" {
   features {}
   
   # Updated: skip_provider_registration is deprecated, consider removing in future versions
-  skip_provider_registration = true
+   skip_provider_registration = true
 }
 
 resource "azurerm_resource_group" "resource_group" {
