@@ -10,7 +10,7 @@ initContainers:
     schemaTable: "service_request_schema"
     image:
       repository: "service-request-db"
-      tag: DIGIT-2.9-LTS-237578ce80-7
+      tag: v2.9.0-063968adc7-8
 
 # Ingress Configs
 ingress:

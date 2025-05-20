@@ -13,8 +13,8 @@ ingress:
 initContainers:
   gitSync:
     enabled: true
-    repo: "git@github.com:egovernments/egov-mdms-data"
-    branch: "master"
+    repo: "git@github.com:manish050994/egov-mdms-data"
+    branch: "UNIFIED-QA"
 
 # Container Configs
 image:

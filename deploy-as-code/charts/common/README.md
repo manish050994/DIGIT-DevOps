@@ -37,7 +37,7 @@ Parameter | Description | Default
 `initContainers.dbMigration.image.tag` | Docker image tag for the initcontainer | `latest`
 `initContainers.dbMigration.env` | Allows the specification of additional environment variables. Passed through the tpl function and thus to be configured a string | `For Eg:` <br/> `env: \|` <br/> &nbsp;  &nbsp; &nbsp;  &nbsp; `- name: "FLYWAY_USER"` <br/> &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; `valueFrom:` <br/> &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `secretKeyRef:` <br/> &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `name: db` <br/> &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `key: flyway-username` <br/> For more details check [values.yaml](https://github.com/egovernments/eGov-infraOps/blob/helm/helm/charts/common/values.yaml)
 `initContainers.gitSync.enabled` | To add a gitSync init container which clones a repository using configured ssh read token | `false`
-`initContainers.gitSync.repo` | Git repository to be checked out, required, if gitSync enabled, example, `git@github.com:egovernments/egov-mdms-data`  | `''`
+`initContainers.gitSync.repo` | Git repository to be checked out, required, if gitSync enabled, example, `git@github.com:manish050994/egov-mdms-data`  | `''`
 `initContainers.gitSync.branch` | Git repository branch to be checked out, required, if gitSync enabled, example, `master`  | `''`
 `gitSync.image.repository` | Docker image of the gitSync init container  | `k8s.gcr.io/git-sync`
 `gitSync.image.tag` | Docker image tag of the gitSync init container | `v3.1.1`

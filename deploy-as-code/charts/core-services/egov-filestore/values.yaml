@@ -33,7 +33,7 @@ fixed-bucketname: "unified-dev-bucket-s3"
 heap: "-Xmx192m -Xms192m"
 file-storage-mount-path: "/filestore"
 is-nfs-enabled: false
-is-s3-enabled: true
+is-s3-enabled: false
 
 persistence:
   enabled: false
@@ -54,6 +54,8 @@ env: |
     value: "6MB"
   - name: ISNFSSTORAGEENABLED
     value: {{ index .Values "is-nfs-enabled" | quote }}
+  - name: ISAZURESTORAGEENABLED
+    value: {{ index .Values "isAzureStorageEnabled" | quote }}
   {{- if index .Values "is-nfs-enabled" }}
   - name: ISNFSSTORAGEENABLED
     value: "true"
@@ -68,7 +70,10 @@ env: |
   {{- if index .Values "is-s3-enabled" }}
   - name: ISS3ENABLED
     value: "true"
-  {{- end }}  
+  {{- else }}
+  - name: ISS3ENABLED
+    value: "false"
+  {{- end }}
   {{- if index .Values "minio-enabled" }}
   - name: AWS_KEY
     valueFrom:
@@ -80,17 +85,23 @@ env: |
       secretKeyRef:
         key: secretkey
         name: minio
-  {{else}}
-  - name: AWS_KEY
+  {{- else }}
+  - name: AZURE_ACCOUNTNAME
     valueFrom:
       secretKeyRef:
         name: egov-filestore
         key: awskey
-  - name: AWS_SECRETKEY
+  - name: AZURE_ACCOUNTKEY
     valueFrom:
       secretKeyRef:
         name: egov-filestore
         key: awssecretkey
+  {{- end }}
+  - name: AZURE_DEFAULTENDPOINTSPROTOCOL
+    value: https
+  {{- if index .Values "fixed-bucketname" }}
+  - name: FIXED_CONTAINER_NAME
+    value: {{ index .Values "fixed-container-name" | quote }}
   {{- end }}
   {{- if index .Values "is-bucket-fixed" }}
   - name: IS_BUCKET_FIXED
@@ -115,4 +126,5 @@ env: |
   - name: PRESIGNED_URL_EXPIRY_TIME_IN_SECS     
     value: {{ index .Values "filestore-url-validity" | quote }}   
   {{- end }}  
+
 

@@ -37,6 +37,8 @@ initContainers:
       pullPolicy: IfNotPresent  
       tag: latest
     env: |
+        - name: "SCHEMA_NAME"
+          value: public
         - name: "DB_URL"
           valueFrom: 
             configMapKeyRef: 
@@ -120,6 +122,8 @@ resources: |
 ## Allows specification of additional environment variables
 extraEnv:
   java: |
+      - name: "SCHEMA_NAME"
+        value: public
       - name: SPRING_DATASOURCE_URL
         valueFrom:
           configMapKeyRef:

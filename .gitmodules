@@ -1,4 +1,4 @@
 [submodule "ci-as-code"]
 	path = ci-as-code
-	url = git@github.com:egovernments/CIOps.git
+	url = git@github.com:manish050994/CIOps.git
 	branch = master

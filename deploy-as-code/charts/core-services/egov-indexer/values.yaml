@@ -19,7 +19,7 @@ initContainers:
       tag: 2.9.1-c781a2f714-65
   gitSync:
     enabled: true
-    repo: "git@github.com:egovernments/configs"
+    repo: "git@github.com:manish050994/configs"
     branch: "master"
 
 # Container Configs
@@ -71,10 +71,10 @@ env: |
   - name: EGOV_INDEXER_ES_USERNAME
     valueFrom:
       secretKeyRef:
-        name: elasticsearch-credentials
+        name: elasticsearch-master-credentials
         key: username
   - name: EGOV_INDEXER_ES_PASSWORD
     valueFrom:
       secretKeyRef:
-        name: elasticsearch-credentials
+        name: elasticsearch-master-credentials
         key: password   
