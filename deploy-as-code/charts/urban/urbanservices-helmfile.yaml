@@ -12,17 +12,17 @@ templates:
       - ../environments/env.yaml
 
 releases:
-  - name: property-services # Replace with your desired namespace
-    installed: true # Replace with the version of your chart, if needed
-    <<: *default
+  # - name: property-services # Replace with your desired namespace
+  #   installed: true # Replace with the version of your chart, if needed
+  #   <<: *default
 
   # - name: pt-services-v2 # Replace with your desired namespace
   #   installed: true # Replace with the version of your chart, if needed
   #   <<: *default
 
-  # - name: pt-calculator-v2 # Replace with your desired namespace
-  #   installed: true # Replace with the version of your chart, if needed
-  #   <<: *default
+  - name: pt-calculator-v2 # Replace with your desired namespace
+    installed: true # Replace with the version of your chart, if needed
+    <<: *default
   
   # - name: digit-ui # Replace with your desired namespace
   #   installed: true # Replace with the version of your chart, if needed

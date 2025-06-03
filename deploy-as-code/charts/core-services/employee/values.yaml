@@ -14,7 +14,7 @@ initContainers: {}
 # Container Configs
 image:
   repository: "employee"
-  tag: v1.10.0-beta-e7a69e05d3-33
+  tag: v1.10.0-beta-b3b9dac35b-24
 replicas: "1"
 httpPort: 80
 healthChecks:

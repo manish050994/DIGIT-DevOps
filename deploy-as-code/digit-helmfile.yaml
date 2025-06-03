@@ -4,6 +4,6 @@ helmfiles:
   - path: ./charts/core-services/coreservices-helmfile.yaml
   # - path: ./charts/frontend/frotendservices-helmfile.yaml
   # - path: ./charts/urban/urbanservices-helmfile.yaml
-  # - path: ./charts/common-services/common-serviceservices-helmfile.yaml
+  - path: ./charts/common-services/common-serviceservices-helmfile.yaml
 
 

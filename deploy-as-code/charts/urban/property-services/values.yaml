@@ -193,3 +193,7 @@ env: |
     value: {{ index .Values "egov-ui-app-host-map" | quote }}
   - name: EGOV_URL_SHORTNER_ENDPOINT
     value: "/egov-url-shortening/shortener"
+  - name: IS_WORKFLOW_ENABLED
+    value: "true"
+  - name: IS_MUTATION_WORKFLOW_ENABLED
+    value: "true"

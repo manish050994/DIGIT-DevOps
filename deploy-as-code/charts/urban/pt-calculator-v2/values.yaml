@@ -65,13 +65,24 @@ env: |
     value: save-pt-billingslab
   - name: KAFKA_TOPICS_BILLING_SLAB_UPDATE_SERVICE
     value: update-pt-billingslab
+  - name: KAFKA_TOPICS_MUTATION_BILLING_SLAB_SAVE_SERVICE
+    value: save-pt-mutation-billingslab
+  - name: KAFKA_TOPICS_MUTATION_BILLING_SLAB_UPDATE_SERVICE
+    value: update-pt-mutation-billingslab  
   - name: EGOV_MDMS_HOST
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
         key: egov-mdms-service
   - name: EGOV_MDMS_SEARCH_ENDPOINT
-    value: /egov-mdms-service/v1/_search
+    value: /egov-mdms-service/v1/_search 
+  - name: EGOV_PT_REGISTRY_HOST
+    valueFrom:
+      configMapKeyRef:
+        name: egov-service-host
+        key: property-services
+  - name: EGOV_PT_REGISTRY_SEARCH
+    value: /property-services/property/_search   
   - name: EGOV_BILLINGSERVICE_HOST
     valueFrom:
       configMapKeyRef:

@@ -148,3 +148,5 @@ env: |
     value: "false"
   - name: STATELEVEL_ROLECODE_EXCLUDED_LIST 
     value: "BPAREG_DOC_VERIFIER,BPAREG_APPROVER,STUDIO_ADMIN"
+  - name: BS_BUSINESSCODE_DEMAND_UPDATEURL
+    value: '{"PT":"http://pt-calculator-v2:8080/pt-calculator-v2/propertytax/_updatedemand","WS":"http://ws-calculator.egov:8080/ws-calculator/waterCalculator/_updateDemand","SW":"http://sw-calculator.egov:8080/sw-calculator/sewerageCalculator/_updateDemand","TL":""}'

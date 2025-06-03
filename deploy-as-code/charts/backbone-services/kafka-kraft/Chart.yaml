@@ -17,6 +17,10 @@ annotations:
       image: docker.io/bitnami/os-shell:11-debian-11-r90
 apiVersion: v2
 appVersion: 3.6.0
+dependencies:
+  - name: common
+    version: 2.15.0
+    repository: https://charts.bitnami.com/bitnami
 # dependencies:
 # - condition: zookeeper.enabled
 #   name: zookeeper

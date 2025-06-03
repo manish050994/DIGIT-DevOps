@@ -24,7 +24,7 @@ resources: |
 # Container Configs
 image:
   repository: "digit-ui"
-  tag: develop-6f1279f9d0-199
+  tag: v1.7.40-3b5ccc06bb-234
 replicas: "1"
 httpPort: 80
 healthChecks:
